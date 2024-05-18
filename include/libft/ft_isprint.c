@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:41:32 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/05/18 19:35:50 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/01/09 16:15:53 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/02/08 23:30:04 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../include/push_swap.h"
+#include "libft.h"
 
-
-int	main(int argc, char **argv)
+int	ft_isprint(int c)
 {
-
-	if (argc != 2 || not_valid_nums(argv[1]))
-		return (write (1, "ERROR", 5));
-
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }

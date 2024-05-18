@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:41:32 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/05/18 19:35:50 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/02/05 18:18:05 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/02/05 18:27:16 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../include/push_swap.h"
+#include "libft.h"
 
-
-int	main(int argc, char **argv)
+void	ft_putchar_fd(char c, int fd)
 {
-
-	if (argc != 2 || not_valid_nums(argv[1]))
-		return (write (1, "ERROR", 5));
-
+	write(fd, &c, 1);
 }
+/*int main (void)
+{
+	ft_putchar_fd('a',1);
+}*/

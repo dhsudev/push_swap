@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:41:32 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/05/18 19:35:50 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/01/13 16:27:28 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/01/13 16:35:25 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../include/push_swap.h"
-
-
-int	main(int argc, char **argv)
+int	ft_tolower(int c)
 {
-
-	if (argc != 2 || not_valid_nums(argv[1]))
-		return (write (1, "ERROR", 5));
-
+	if (c >= 'A' && c <= 'Z')
+	{
+		return (c + 32);
+	}
+	return (c);
 }

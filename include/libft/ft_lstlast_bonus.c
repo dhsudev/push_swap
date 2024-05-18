@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:41:32 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/05/18 19:35:50 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/02/06 15:54:36 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/02/08 18:50:58 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../include/push_swap.h"
+#include "libft.h"
 
-
-int	main(int argc, char **argv)
+t_list	*ft_lstlast(t_list *lst)
 {
-
-	if (argc != 2 || not_valid_nums(argv[1]))
-		return (write (1, "ERROR", 5));
-
+	while (lst)
+	{
+		if (lst->next == NULL)
+			break ;
+		lst = lst->next;
+	}
+	return (lst);
 }

@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:41:32 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/05/18 19:35:50 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/01/11 18:56:02 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/01/13 16:14:49 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../include/push_swap.h"
+#include "libft.h"
 
-
-int	main(int argc, char **argv)
+void	ft_bzero(void *s, size_t n)
 {
+	unsigned int	i;
+	unsigned char	*rt;
 
-	if (argc != 2 || not_valid_nums(argv[1]))
-		return (write (1, "ERROR", 5));
-
+	i = 0;
+	rt = (unsigned char *)s;
+	while (i < n)
+	{
+		rt[i] = 0;
+		i ++;
+	}
 }

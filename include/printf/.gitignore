@@ -5,6 +5,4 @@
 *.o
 gitscript.sh
 .vscode
-*.txt
-push_swap
-checker_Mac
+*test*

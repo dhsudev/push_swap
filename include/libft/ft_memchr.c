@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 17:41:32 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/05/18 19:35:50 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/01/15 16:47:28 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/01/18 17:34:27 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "../include/push_swap.h"
+#include "libft.h"
 
-
-int	main(int argc, char **argv)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
+	size_t			i;
+	unsigned char	ch;
+	unsigned char	*rt;
 
-	if (argc != 2 || not_valid_nums(argv[1]))
-		return (write (1, "ERROR", 5));
-
+	i = 0;
+	ch = (char) c;
+	rt = (unsigned char *)s;
+	while (i != n)
+	{
+		if (rt[i] == ch)
+		{
+			return ((char *)&rt[i]);
+		}
+		i ++;
+	}
+	return (NULL);
 }
