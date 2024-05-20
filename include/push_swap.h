@@ -6,8 +6,10 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:38:48 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/05/18 19:36:05 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/05/19 19:19:55 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	not_valid_nums(char *s);
+#include <limits.h>
+
+int	not_valid_nums(char **s, int size);
