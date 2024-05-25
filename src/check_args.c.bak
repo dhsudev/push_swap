@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 12:18:30 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/05/25 12:55:00 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/05/18 19:10:56 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/05/20 19:16:25 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 #include <stdio.h>
 
-void exit_checking(char *error)
+int	ft_isdigit(int c)
 {
-	printf("ERROR: %s", error);
-	//write(1,"error\n",6);
-	exit(1);
+	if (c >= '0' && c <= '9')
+		return ((int) c);
+	return (0);
 }
-
 int	protected_atoi(const char *str)
 {
-	long	n;
+	int	num;
 	int	sign;
 	int	i;
 
-	n = 0;
+	num = 0;
 	sign = 1;
 	i = 0;
 	if (str[i] == '-' || str[i] == '+')
@@ -38,12 +37,10 @@ int	protected_atoi(const char *str)
 	}
 	while (ft_isdigit(str[i]))
 	{
-		n = n * 10 + str[i] - '0';
+		num = num * 10 + str[i] - '0';
 		i++;
 	}
-	if (INT_MIN > n || n > INT_MAX)
-		exit_checking("Found a number outside int limits");
-	return ((int)n * sign);
+	return (num * sign);
 }
 
 
@@ -57,7 +54,7 @@ int	not_valid_chars(char *s)
 	{
 		i ++;
 		if (s[i] == '\0')
-		exit_checking("Found a number outside int limits");
+			return (1);
 	}
 	// Check if all chars are digits
 	while(s[i])

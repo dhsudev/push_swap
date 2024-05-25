@@ -6,7 +6,7 @@
 #    By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 17:30:04 by ltrevin-          #+#    #+#              #
-#    Updated: 2024/05/20 20:52:03 by ltrevin-         ###   ########.fr        #
+#    Updated: 2024/05/25 13:14:42 by ltrevin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ HEADER_FILE		= $(INCLUDE_PATH)/push_swap.h
 all: libft $(NAME)
 
 $(NAME): $(HEADER_FILE) $(OBJECTS) Makefile
-	$(CC) $(FLAGS) $(OBJECTS) -o $@
+	@$(CC) $(FLAGS) $(OBJECTS) -o $@ include/libft/libft.a
 	@echo "🔅 Pushswap is ready to work!"
 
 libft:
@@ -39,7 +39,7 @@ libft:
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c $(HEADER_FILE) include/libft/libft.a
 	@mkdir -p objs
-	@$(CC) $(FLAGS) -c $< -o $@ -I $(INCLUDE_PATH)
+	@$(CC) $(FLAGS) -c $< -o $@ -I $(INCLUDE_PATH) 
 	@echo "🛠  $(@F) object created!"
 
 run: $(NAME) 
@@ -59,6 +59,7 @@ clean:
 	@echo "🧼 Removed object files from pushswap!"
 
 fclean: clean
+	@make fclean -C include/libft --no-print-directory
 	@rm -f $(NAME)
 	@echo "🛁 Removed $(NAME) file!"
 
