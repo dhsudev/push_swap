@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
+/*   By: ltrevin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/25 12:18:30 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/05/25 12:55:00 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/06/07 16:53:06 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/06/07 17:00:37 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
-
-#include <stdio.h>
 
 void exit_checking(char *error)
 {
@@ -20,32 +18,6 @@ void exit_checking(char *error)
 	//write(1,"error\n",6);
 	exit(1);
 }
-
-int	protected_atoi(const char *str)
-{
-	long	n;
-	int	sign;
-	int	i;
-
-	n = 0;
-	sign = 1;
-	i = 0;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i ++;
-	}
-	while (ft_isdigit(str[i]))
-	{
-		n = n * 10 + str[i] - '0';
-		i++;
-	}
-	if (INT_MIN > n || n > INT_MAX)
-		exit_checking("Found a number outside int limits");
-	return ((int)n * sign);
-}
-
 
 int	not_valid_chars(char *s)
 {
