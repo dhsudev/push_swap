@@ -1,12 +1,12 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    makefile                                           :+:      :+:    :+:    #
+#    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/10 17:25:42 by ltrevin-          #+#    #+#              #
-#    Updated: 2024/02/08 23:26:40 by ltrevin-         ###   ########.fr        #
+#    Updated: 2024/06/07 11:37:36 by ltrevin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,7 @@ bonus: $(OBJECTS) $(OBJECTS_BNS) $(HEADER_FILE) Makefile
 
 clean:
 	@rm -f $(OBJECTS) $(OBJECTS_BNS)
-	@echo "🧼 Removed object files!"
+	@echo "🧼 Removed object files from libft!"
 	
 fclean: clean
 	@rm -f $(NAME) bonus
