@@ -6,7 +6,7 @@
 #    By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 17:30:04 by ltrevin-          #+#    #+#              #
-#    Updated: 2024/05/25 13:14:42 by ltrevin-         ###   ########.fr        #
+#    Updated: 2024/06/07 16:58:40 by ltrevin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ $(NAME): $(HEADER_FILE) $(OBJECTS) Makefile
 	@echo "🔅 Pushswap is ready to work!"
 
 libft:
-	@make -C include/libft --no-print-directory
+	@make bonus -C include/libft --no-print-directory
 
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c $(HEADER_FILE) include/libft/libft.a
 	@mkdir -p objs
