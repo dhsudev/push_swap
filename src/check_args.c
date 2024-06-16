@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrevin- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:53:06 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/06/07 17:00:37 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/06/16 20:05:03 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,10 @@ int	not_valid_chars(char *s)
 }
 
 
-int	not_valid_nums(char **args, int size)
+int	init_stack(char **args, int size, t_stack *stack)
 {
 	int i;
+	long n;
 	//int nums[nums-1];
 	
 	// We start at one to ommit the executor file
@@ -55,8 +56,12 @@ int	not_valid_nums(char **args, int size)
 	while (i < size)
 	{
 		if (not_valid_chars(args[i]))
-			return (1);
-		//printf("%d\n", protected_atoi(args[i]));
+			exit_checking("Found something that is not a number");
+		n = ft_atol(args[i]);
+		if(n > INT_MAX || n < INT_MIN)
+			exit_checking("Found a number outside limits");
+		(void)stack;
+		add_to_stack(stack, (int)n);
 		//nums[i-1] = ft_atoi(args[i]); 
 		i ++;
 	}
