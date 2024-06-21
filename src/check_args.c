@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:53:06 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/06/16 20:05:03 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:09:44 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	init_stack(char **args, int size, t_stack *stack)
 		if(n > INT_MAX || n < INT_MIN)
 			exit_checking("Found a number outside limits");
 		(void)stack;
-		add_to_stack(stack, (int)n);
+		add_to_stack(&stack, (int)n);
 		//nums[i-1] = ft_atoi(args[i]); 
 		i ++;
 	}
