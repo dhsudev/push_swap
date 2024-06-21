@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:38:48 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/06/17 14:27:37 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:09:50 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,14 @@ typedef struct s_stack
 	struct s_stack	*target_node;
 	struct s_stack	*next;
 	struct s_stack	*prev;
-}				t_stack;
+}					t_stack;
 
 int		not_valid_nums(char **s, int size);
 long	ft_atol(char *str);
 int		init_stack(char **args, int size, t_stack *stack);
-void	add_to_stack(t_stack *stack, int n);
+void	add_to_stack(t_stack **stack, int n);
+
+//Utils to delete
+void	print_stack(t_stack *stack);
 
 #endif

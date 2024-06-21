@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:44:55 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/06/16 20:06:52 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:09:47 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,32 @@ t_stack	*last_node(t_stack *lst)
 	return (tmp);
 }
 
-void add_to_stack(t_stack *stack, int n)
+void add_to_stack(t_stack **stack, int n)
 {
 	t_stack	*last;
 	t_stack *new;
 	
-	last = last_node(stack);
+	last = last_node(*stack);
 	new = malloc(sizeof(t_stack));
 	new->value = n;
 	new->next = NULL;
 	if(last)
-	new->prev = last;
-	last->next = new;
+	{
+		new->prev = last;
+		last->next = new;
+	}
+	else 
+		*stack = new;
+}
+
+void print_stack(t_stack *stack)
+{
+	int i = 0;
+	printf("Current status of the stack:\n");
+	while(stack != NULL)
+	{
+		printf("%d - |%d|\n", i, stack->value);
+		stack = stack->next;
+		i++;
+	}
 }
