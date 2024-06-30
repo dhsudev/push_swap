@@ -6,7 +6,7 @@
 #    By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 17:30:04 by ltrevin-          #+#    #+#              #
-#    Updated: 2024/06/16 19:59:52 by ltrevin-         ###   ########.fr        #
+#    Updated: 2024/06/30 18:57:23 by ltrevin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS_PATH		= ./objs
 INCLUDE_PATH	= ./include
 
 ##########  VARS FILES
-SRC_FILES 		= check_args.c main.c num_utils.c stack_utils.c
+SRC_FILES 		= check_args.c main.c num_utils.c stack_utils.c moves.c
 SRCS 			= $(patsubst %, $(SRCS_PATH)/%, $(SRC_FILES))
 OBJECTS 		= $(patsubst $(SRCS_PATH)/%.c, $(OBJS_PATH)/%.o, $(SRCS))
 HEADER_FILE		= $(INCLUDE_PATH)/push_swap.h
