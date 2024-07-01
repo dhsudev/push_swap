@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:44:55 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/06/30 18:41:56 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/01 13:19:13 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,15 +54,15 @@ void print_stack(t_stack *stack)
 	}
 }
 
-int	search_dup(t_stack *stack, int n)
+e_bool	search_dup(t_stack *stack, int n)
 {
 	int i = 0;
 	while(stack != NULL)
 	{
 		if(stack->value == n)
-			return 1;
+			return true;
 		stack = stack->next;
 		i++;
 	}
-	return 0;
+	return false;
 }
