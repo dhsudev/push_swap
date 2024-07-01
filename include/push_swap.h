@@ -6,17 +6,17 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:38:48 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/01 13:19:07 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/01 16:10:26 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H 
+# define PUSH_SWAP_H
 
-# include <limits.h>
-# include <unistd.h>
-# include <stdio.h>
 # include "libft/libft.h"
+# include <limits.h>
+# include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_stack
 {
@@ -31,23 +31,30 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
-typedef enum
-{
-		false,
-		true
-} 		e_bool;
+int					not_valid_nums(char **s, int size);
+long				ft_atol(char *str);
+int					init_stack(char **args, int size, t_stack **stack);
+void				add_to_stack(t_stack **stack, int n);
+int					search_dup(t_stack *stack, int n);
+void				finish(t_stack **a, t_stack **b);
 
-int		not_valid_nums(char **s, int size);
-long	ft_atol(char *str);
-int		init_stack(char **args, int size, t_stack **stack);
-void	add_to_stack(t_stack **stack, int n);
-e_bool	search_dup(t_stack *stack, int n);
+// Utils to delete
+void				print_stack(t_stack *a, t_stack *b);
 
-//Utils to delete
-void	print_stack(t_stack *stack);
+// MOVES
+void				sa(t_stack **a, int checker);
+void				sb(t_stack **b, int checker);
+void				ss(t_stack **a, t_stack **b, int checker);
+void				pa(t_stack **a, t_stack **b, int checker);
+void				pb(t_stack **a, t_stack **b, int checker);
+void				ra(t_stack **a, int checker);
+void				rb(t_stack **b, int checker);
+void				rr(t_stack **a, t_stack **b, int checker);
+void				rra(t_stack **a, int checker);
+void				rrb(t_stack **b, int checker);
+void				rrr(t_stack **a, t_stack **b, int checker);
 
-//MOVES
-void sa(t_stack **a);
+
 
 
 #endif
