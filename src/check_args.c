@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:53:06 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/06/30 19:00:49 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/01 13:20:04 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void exit_checking(char *error)
 {
 	printf("ERROR: %s", error);
-	//write(1,"Error\n",6);
+	//write(1,"error\n",6);
 	exit(1);
 }
 
@@ -44,10 +44,11 @@ int	not_valid_chars(char *s)
 }
 
 
-int	init_stack(char **args, int size, t_stack **stack)
+int	init_stack(char **args, int size, t_stack *stack)
 {
-	int i;
-	long n;
+	int		i;
+	long	n;
+	//int nums[nums-1];
 	
 	// We start at one to ommit the executor file
 	i = 1;
@@ -59,9 +60,9 @@ int	init_stack(char **args, int size, t_stack **stack)
 		n = ft_atol(args[i]);
 		if(n > INT_MAX || n < INT_MIN)
 			exit_checking("Found a number outside limits");
-		if(search_dup(*stack, (int)n))
-			exit_checking("Duplicate numbers");
-		add_to_stack(stack, (int)n);
+		(void)stack;
+		add_to_stack(&stack, (int)n);
+		//nums[i-1] = ft_atoi(args[i]); 
 		i ++;
 	}
 	return (0);
