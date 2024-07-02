@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:53:06 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/01 16:00:55 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/02 17:05:13 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,25 @@
 
 void	exit_checking(char *error)
 {
-	printf("ERROR: %s", error);
-	// write(1,"error\n",6);
+	//printf("ERROR: %s", error);
+	(void) error;
+	write(1,"error\n",6);
 	exit(1);
+}
+
+int	search_dup(t_stack *stack, int n)
+{
+	int	i;
+
+	i = 0;
+	while (stack != NULL)
+	{
+		if (stack->value == n)
+			return (1);
+		stack = stack->next;
+		i++;
+	}
+	return (0);
 }
 
 int	not_valid_chars(char *s)
@@ -64,4 +80,23 @@ int	init_stack(char **args, int size, t_stack **stack)
 		i++;
 	}
 	return (0);
+}
+
+void	finish(t_stack **a, t_stack **b)
+{
+	t_stack	*node;
+
+	while (*a)
+	{
+		node = *a;
+		*a = (*a)->next;
+		free(node);
+	}
+	while (*b)
+	{
+		node = *b;
+		*b = (*b)->next;
+		free(node);
+	}
+	exit(0);
 }

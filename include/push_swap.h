@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:38:48 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/01 16:10:26 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/02 16:55:53 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,19 @@ typedef struct s_stack
 	struct s_stack	*prev;
 }					t_stack;
 
+// Checking utils
 int					not_valid_nums(char **s, int size);
 long				ft_atol(char *str);
 int					init_stack(char **args, int size, t_stack **stack);
-void				add_to_stack(t_stack **stack, int n);
+// Stack utils
+void			add_to_stack(t_stack **stack, int n);
 int					search_dup(t_stack *stack, int n);
 void				finish(t_stack **a, t_stack **b);
+int					smallest(t_stack *stack);
+int					stack_len(t_stack *stack);
+
+// Sorting fucn
+void				sort_three(t_stack **stack);
 
 // Utils to delete
 void				print_stack(t_stack *a, t_stack *b);
@@ -53,8 +60,5 @@ void				rr(t_stack **a, t_stack **b, int checker);
 void				rra(t_stack **a, int checker);
 void				rrb(t_stack **b, int checker);
 void				rrr(t_stack **a, t_stack **b, int checker);
-
-
-
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:44:55 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/01 16:00:44 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/02 16:15:39 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,33 @@ void	add_to_stack(t_stack **stack, int n)
 		*stack = new;
 }
 
+int	smallest(t_stack *stack)
+{
+	int	n;
+
+	n = stack->value;
+	while (stack)
+	{
+		if (n > stack->value)
+			n = stack->value;
+		stack = stack->next;
+	}
+	return (n);
+}
+
+int stack_len(t_stack *stack)
+{
+	int count;
+
+	count = 0;
+	while(stack)
+	{
+		count++;
+		stack = stack->next;
+	}
+	return(count);
+}
+// TO DELETE, DEBUG FUNC
 void	print_stack(t_stack *a, t_stack *b)
 {
 	int	i;
@@ -62,38 +89,4 @@ void	print_stack(t_stack *a, t_stack *b)
 		b = b->next;
 		i++;
 	}
-}
-
-int	search_dup(t_stack *stack, int n)
-{
-	int	i;
-
-	i = 0;
-	while (stack != NULL)
-	{
-		if (stack->value == n)
-			return (1);
-		stack = stack->next;
-		i++;
-	}
-	return (0);
-}
-
-void	finish(t_stack **a, t_stack **b)
-{
-	t_stack	*node;
-
-	while (*a)
-	{
-		node = *a;
-		*a = (*a)->next;
-		free(node);
-	}
-	while (*b)
-	{
-		node = *b;
-		*b = (*b)->next;
-		free(node);
-	}
-	exit(0);
 }

@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   rotate_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrevin- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 15:27:11 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/01 15:59:41 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/07/02 14:58:19 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/07/02 14:58:29 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../include/push_swap.h"
 

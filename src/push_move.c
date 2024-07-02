@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_move.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrevin- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/01 13:34:47 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/01 14:23:38 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/07/02 14:57:17 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/07/02 14:59:35 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void push(t_stack **src, t_stack **dest)
 	// Put the second node to fisrt
 	*src = node->next;
 	(*src)->prev = NULL;
-	write(1,"A\n",2);
 	// Link node to the dest
 	if(dest)
 	{
