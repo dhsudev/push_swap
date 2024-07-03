@@ -1,53 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_move.c                                      :+:      :+:    :+:   */
+/*   move_reverse_rotate.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/02 14:58:19 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/02 14:58:29 by ltrevin-         ###   ########.fr       */
+/*   Created: 2024/07/02 14:57:59 by ltrevin-          #+#    #+#             */
+/*   Updated: 2024/07/03 18:15:12 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../include/push_swap.h"
 
-void	rotate(t_stack **stack)
+void	reverse_rotate(t_stack **stack)
 {
-	t_stack	*top;
+	t_stack	*bot;
 	t_stack	*tmp;
 
 	if (!stack)
 		return ;
-	top = *stack;
-	*stack = (*stack)->next;
-	top->next = NULL;
-	(*stack)->prev = NULL;
 	tmp = *stack;
 	while (tmp->next)
 		tmp = tmp->next;
-	tmp->next = top;
+	bot = tmp;
+	bot->prev->next = NULL;
+	bot->next = *stack;
+	(*stack)->prev = bot;
+	*stack = bot;
 }
 
-void	ra(t_stack **a, int checker)
+void	rra(t_stack **a, int checker)
 {
-	rotate(a);
+	reverse_rotate(a);
 	if (!checker)
-		write(1, "ra\n", 3);
+		write(1, "rra\n", 4);
 }
 
-void	rb(t_stack **b, int checker)
+void	rrb(t_stack **b, int checker)
 {
-	rotate(b);
+	reverse_rotate(b);
 	if (!checker)
-		write(1, "rb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
-void	rr(t_stack **a, t_stack **b, int checker)
+void	rrr(t_stack **a, t_stack **b, int checker)
 {
-	rotate(a);
-	rotate(b);
+	reverse_rotate(a);
+	reverse_rotate(b);
 	if (!checker)
-		write(1, "rr\n", 3);
+		write(1, "rrr\n", 4);
 }

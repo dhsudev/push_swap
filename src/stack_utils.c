@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:44:55 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/02 16:15:39 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/03 18:13:57 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,17 @@ int	smallest(t_stack *stack)
 	return (n);
 }
 
-int stack_len(t_stack *stack)
+int	stack_len(t_stack *stack)
 {
-	int count;
+	int	count;
 
 	count = 0;
-	while(stack)
+	while (stack)
 	{
 		count++;
 		stack = stack->next;
 	}
-	return(count);
+	return (count);
 }
 // TO DELETE, DEBUG FUNC
 void	print_stack(t_stack *a, t_stack *b)
