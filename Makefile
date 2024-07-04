@@ -6,7 +6,7 @@
 #    By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 17:30:04 by ltrevin-          #+#    #+#              #
-#    Updated: 2024/07/03 19:21:33 by ltrevin-         ###   ########.fr        #
+#    Updated: 2024/07/04 17:26:59 by ltrevin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 ##########  VARS CONFIG
 NAME			= push_swap
 CC				= gcc
-FLAGS			= -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS			= -Wall -Wextra -Werror #-g -fsanitize=address
 AR				= ar rcs
 
 ##########  PATHS
@@ -23,7 +23,9 @@ OBJS_PATH		= ./objs
 INCLUDE_PATH	= ./include
 
 ##########  VARS FILES
-SRC_FILES 		= check_args.c main.c num_utils.c stack_utils.c swap_move.c push_move.c rotate_move.c reverse_rotate_move.c tiny_sorts.c
+SRC_FILES 		= 	check_args.c main.c num_utils.c stack_utils.c \
+					move_swap.c move_push.c move_rotate.c move_reverse_rotate.c \
+					tiny_sorts.c
 SRCS 			= $(patsubst %, $(SRCS_PATH)/%, $(SRC_FILES))
 OBJECTS 		= $(patsubst $(SRCS_PATH)/%.c, $(OBJS_PATH)/%.o, $(SRCS))
 HEADER_FILE		= $(INCLUDE_PATH)/push_swap.h
@@ -40,7 +42,7 @@ libft:
 $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c $(HEADER_FILE) include/libft/libft.a
 	@mkdir -p objs
 	@$(CC) $(FLAGS) -c $< -o $@ -I $(INCLUDE_PATH) 
-	@echo "🛠  $(@F) object created!"
+	@echo "🛠  $(@F:.o=) object created!"
 
 run: $(NAME) 
 	@echo "🔢 Starting execution..."
@@ -52,7 +54,6 @@ test: $(NAME) checker_Mac
 	@echo "🔢  Starting execution counting words..."
 	@./$(NAME) $(ARGS) | wc -l
 
-.PHONY: all clean fclean re libft
 
 clean:
 	@rm -rf objs
@@ -64,3 +65,6 @@ fclean: clean
 	@echo "🛁 Removed $(NAME) file!"
 
 re: fclean all
+
+
+.PHONY: all clean fclean re libft

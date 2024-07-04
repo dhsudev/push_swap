@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:57:17 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/03 18:18:22 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:15:13 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	push(t_stack **src, t_stack **dest)
 	node = *src;
 	*src = node->next;
 	(*src)->prev = NULL;
-	if (dest)
+	if (dest && *dest)
 	{
 		node->next = *dest;
 		(*dest)->prev = node;

@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:44:55 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/03 18:13:57 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/04 19:42:30 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,16 +68,28 @@ int	stack_len(t_stack *stack)
 	}
 	return (count);
 }
+
+int sorted(t_stack *stack)
+{
+	while(stack->next)
+	{
+		if(stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
 // TO DELETE, DEBUG FUNC
 void	print_stack(t_stack *a, t_stack *b)
 {
 	int	i;
 
 	i = 0;
-	printf("--Stack A --\n");
+	printf("--------Printing stacks------------\n--Stack A --\n");
 	while (a != NULL)
 	{
-		printf("%d - |%d|\n", i, a->value);
+		printf("%d - |%d|\n", a->index, a->value);
 		a = a->next;
 		i++;
 	}
@@ -85,7 +97,11 @@ void	print_stack(t_stack *a, t_stack *b)
 	printf("--Stack B --\n");
 	while (b != NULL)
 	{
-		printf("%d - |%d|\n", i, b->value);
+		if(b->target != NULL)
+			printf("%d - |%d| target: %d\n", b->index, b->value, b->target->value);
+		else {
+			printf("%d - |%d| no target\n", b->index, b->value);
+		}
 		b = b->next;
 		i++;
 	}

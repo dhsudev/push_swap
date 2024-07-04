@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:18:36 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/03 18:14:00 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/04 15:12:45 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,10 @@ void	sort_three(t_stack **stack)
 		rra(stack, 0);
 	if ((*stack)->value > (*stack)->next->value)
 		sa(stack, 0);
+}
+
+void	sort_five(t_stack **a, t_stack **b)
+{
+	(void)a;
+	(void)b;
 }

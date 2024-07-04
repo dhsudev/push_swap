@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:53:06 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/03 19:23:29 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/04 17:41:49 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,23 @@ void	finish(t_stack **a, t_stack **b)
 {
 	t_stack	*node;
 
-	if(a == 0 || b == 0)
-		return ;
-	while (*a)
+	if(a != 0)
 	{
-		node = *a;
-		*a = (*a)->next;
-		free(node);
+		while (*a)
+		{
+			node = *a;
+			*a = (*a)->next;
+			free(node);
+		}
 	}
-	while (*b)
+	if(b != 0)
 	{
-		node = *b;
-		*b = (*b)->next;
-		free(node);
+		while (*b)
+		{
+			node = *b;
+			*b = (*b)->next;
+			free(node);
+		}
 	}
 	exit(0);
 }
