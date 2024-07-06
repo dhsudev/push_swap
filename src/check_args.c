@@ -3,104 +3,77 @@
 /*                                                        :::      ::::::::   */
 /*   check_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ltrevin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:53:06 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/04 17:41:49 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/06 17:10:31 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	finish(t_stack **a, t_stack **b)
+void exit_checking(char *error)
 {
-	t_stack	*node;
-
-	if(a != 0)
-	{
-		while (*a)
-		{
-			node = *a;
-			*a = (*a)->next;
-			free(node);
-		}
-	}
-	if(b != 0)
-	{
-		while (*b)
-		{
-			node = *b;
-			*b = (*b)->next;
-			free(node);
-		}
-	}
-	exit(0);
-}
-
-void	exit_checking(t_stack **stack)
-{
-	write(1,"Error\n",6);
-	finish(stack, NULL);
+	printf("ERROR: %s", error);
+	//write(1,"error\n",6);
 	exit(1);
-}
-
-int	search_dup(t_stack *stack, int n)
-{
-	int	i;
-
-	i = 0;
-	while (stack != NULL)
-	{
-		if (stack->value == n)
-			return (1);
-		stack = stack->next;
-		i++;
-	}
-	return (0);
 }
 
 int	not_valid_chars(char *s)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (s[i] && (s[i] == ' ' || s[i] == '\t' || s[i] == '\n'
-			|| s[i] == '\r' || s[i] == '\v' || s[i] == '\f'))
-		i++;
+	// Check sign
 	if (s[i] == '+' || s[i] == '-')
 	{
-		i++;
+		i ++;
 		if (s[i] == '\0')
-			return(1);
+			exit_checking("Found an arg that is only a sign??");
 	}
-	while (s[i])
+	// Check if all chars are digits
+	while(s[i])
 	{
 		if (s[i] < '0' || s[i] > '9')
-			return (1);
-		i++;
+			exit_checking("Found an arg that is NaN")
+		i ++;
 	}
 	if (i == 0)
 		return (1);
 	return (0);
 }
 
-int	init_stack(char **args, int size, t_stack **stack)
-{
-	int		i;
-	long	n;
 
+int	not_valid_nums(char **args, int size)
+{
+	int i;
+	int len;
+	
+	// We start at one to ommit the executor file
 	i = 1;
+	// Check if all args are valid
 	while (i < size)
 	{
 		if (not_valid_chars(args[i]))
-			exit_checking(stack);
-		n = ft_atol(args[i]);
-		if (n > INT_MAX || n < INT_MIN)
-			exit_checking(stack);
-		if (search_dup(*stack, (int)n))
-			exit_checking(stack);
-		add_to_stack(stack, (int)n);
-		i++;
+			return ();
+		len = ft_strlen(args[i]);
+
+		// Int limits check
+		if (len > 11)
+			exit_checking("Found an arg that the len is larger than the int limits")
+		else if (len == 10) // Max without sign
+		{
+			if (ft_strncmp(args[i], "2147483647", len) > 0)
+				exit("Found an arg greater than max int");
+		}
+		else if (len == 11) // Max/Min with sign
+		{
+			if (ft_strncmp(args[i], "+2147483647", len) > 0)
+			
+		}
+		// Try to pass the num to atot
+
+		i ++;
 	}
 	return (0);
 }
