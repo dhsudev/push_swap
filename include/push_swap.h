@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:38:48 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/04 19:33:28 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/06 20:29:13 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int					not_valid_nums(char **s, int size);
 long				ft_atol(char *str);
 int					init_stack(char **args, int size, t_stack **stack);
 // Stack utils
-void			add_to_stack(t_stack **stack, int n);
+void				add_to_stack(t_stack **stack, int n);
 int					search_dup(t_stack *stack, int n);
 void				finish(t_stack **a, t_stack **b);
 int					smallest(t_stack *stack);
@@ -45,7 +45,7 @@ int					sorted(t_stack *stack);
 // Sorting fucn
 void				sort_three(t_stack **stack);
 void				sort_five(t_stack **a, t_stack **b);
-
+void				init_nodes(t_stack *a, t_stack *b);
 // Utils to delete
 void				print_stack(t_stack *a, t_stack *b);
 

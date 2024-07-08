@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:44:55 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/04 19:42:30 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/06 20:33:17 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	print_stack(t_stack *a, t_stack *b)
 	while (b != NULL)
 	{
 		if(b->target != NULL)
-			printf("%d - |%d| target: %d\n", b->index, b->value, b->target->value);
+			printf("%d - |%d| target: %d push_price: %d\n", b->index, b->value, b->target->value, b->price);
 		else {
 			printf("%d - |%d| no target\n", b->index, b->value);
 		}

@@ -6,7 +6,7 @@
 #    By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 17:30:04 by ltrevin-          #+#    #+#              #
-#    Updated: 2024/07/04 17:26:59 by ltrevin-         ###   ########.fr        #
+#    Updated: 2024/07/06 20:15:47 by ltrevin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ INCLUDE_PATH	= ./include
 ##########  VARS FILES
 SRC_FILES 		= 	check_args.c main.c num_utils.c stack_utils.c \
 					move_swap.c move_push.c move_rotate.c move_reverse_rotate.c \
-					tiny_sorts.c
+					tiny_sorts.c init_nodes.c
 SRCS 			= $(patsubst %, $(SRCS_PATH)/%, $(SRC_FILES))
 OBJECTS 		= $(patsubst $(SRCS_PATH)/%.c, $(OBJS_PATH)/%.o, $(SRCS))
 HEADER_FILE		= $(INCLUDE_PATH)/push_swap.h
