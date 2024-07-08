@@ -6,7 +6,7 @@
 #    By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 17:30:04 by ltrevin-          #+#    #+#              #
-#    Updated: 2024/07/06 20:15:47 by ltrevin-         ###   ########.fr        #
+#    Updated: 2024/07/08 21:30:19 by ltrevin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 ##########  VARS CONFIG
 NAME			= push_swap
 CC				= gcc
-FLAGS			= -Wall -Wextra -Werror #-g -fsanitize=address
+FLAGS			= -Wall -Wextra -Werror -g -fsanitize=address
 AR				= ar rcs
 
 ##########  PATHS

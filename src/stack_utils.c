@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:44:55 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/06 20:33:17 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/08 21:32:44 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	print_stack(t_stack *a, t_stack *b)
 	printf("--------Printing stacks------------\n--Stack A --\n");
 	while (a != NULL)
 	{
-		printf("%d - |%d|\n", a->index, a->value);
+		printf("%d - |%d|\n", i, a->value);
 		a = a->next;
 		i++;
 	}
@@ -98,9 +98,9 @@ void	print_stack(t_stack *a, t_stack *b)
 	while (b != NULL)
 	{
 		if(b->target != NULL)
-			printf("%d - |%d| target: %d push_price: %d\n", b->index, b->value, b->target->value, b->price);
+			printf("%d - |%d| target: %d push_price: %d\n", i, b->value, b->target->value, b->price);
 		else {
-			printf("%d - |%d| no target\n", b->index, b->value);
+			printf("%d - |%d| no target\n", i, b->value);
 		}
 		b = b->next;
 		i++;
