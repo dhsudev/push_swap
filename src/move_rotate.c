@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:58:19 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/03 18:13:54 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:27:08 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,10 @@ void	rotate(t_stack **stack)
 {
 	t_stack	*top;
 	t_stack	*tmp;
+	int len;
 
-	if (!stack)
+	len = stack_len(*stack);
+	if (stack == NULL || *stack == NULL || len < 2)
 		return ;
 	top = *stack;
 	*stack = (*stack)->next;

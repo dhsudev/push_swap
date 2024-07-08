@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:41:32 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/08 13:55:46 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:18:43 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 void move(t_stack **a, t_stack **b)
 {
+	if(*a && *b)
 	pa(a,b, 0);
+	(void)a;
+	(void)b;
 }
 
 /*
@@ -42,12 +45,14 @@ void	big_sort(t_stack **a, t_stack **b)
 			pb(a, b, 0);
 	}
 	sort_three(a);
-	while(*b)
+	int i = 0;
+	while(i != 10)
 	{
 		//print_stack(*a,*b);
 		init_nodes(*a, *b);
-		print_stack(*a, *b);
+		//print_stack(*a, *b);
 		move(a, b);
+		printf("Vuelta numero: %d\n", i++);
 	}
 
 }
