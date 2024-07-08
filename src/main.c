@@ -6,12 +6,17 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:41:32 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/06 20:29:49 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:55:46 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <unistd.h>
+
+void move(t_stack **a, t_stack **b)
+{
+	pa(a,b, 0);
+}
 
 /*
  * Handle a stack bigger than 3, there is more efficient sort with len 5
@@ -37,13 +42,13 @@ void	big_sort(t_stack **a, t_stack **b)
 			pb(a, b, 0);
 	}
 	sort_three(a);
-	//while(*b)
-	//{
-	print_stack(*a,*b);
-	init_nodes(*a, *b);
-	print_stack(*a, *b);
-	//	move(a, b);
-	//}
+	while(*b)
+	{
+		//print_stack(*a,*b);
+		init_nodes(*a, *b);
+		print_stack(*a, *b);
+		move(a, b);
+	}
 
 }
 
@@ -68,6 +73,7 @@ int	main(int argc, char **argv)
 		else 
 			big_sort(&a, &b);
 	}
+	printf("======== END OF THE PROGRAM ==========\n");
 	print_stack(a, b);
 	finish(&a, &b);
 	return (0);

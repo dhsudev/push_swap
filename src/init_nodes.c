@@ -6,11 +6,12 @@
 /*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:14:33 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/06 20:32:42 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/08 13:28:40 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+
 
 /*
  * Calculates the price to perfom the pa (to be in order) 
@@ -103,7 +104,25 @@ void	set_target(t_stack *a, t_stack *b)
 		b = b->next;
 	}
 }
-
+/*
+ * Search for the cheapest node in the stack b and flags it
+ */
+void set_cheapest(t_stack *stack){
+	t_stack *cheapest_node;
+	
+	cheapest_node = stack;
+	while(stack)
+	{
+		if(stack->price < cheapest_node->price)
+		{
+			cheapest_node = stack;
+		}
+		stack->cheapest = 0;
+		stack = stack->next;
+	}
+	cheapest_node->cheapest = 1;
+	printf("The cheapest node is: |%d|\n", cheapest_node->value);
+}
 /*
  * Inits the nodes of the stacks to make the decision of what to move:
  *		- sets the index of the node in the stack
@@ -117,5 +136,5 @@ void	init_nodes(t_stack *a, t_stack *b)
 	set_index(b);
 	set_target(a, b);
 	set_price(a, b);
-	// set_cheapest(b);
+	set_cheapest(b);
 }
