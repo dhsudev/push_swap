@@ -6,19 +6,65 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:41:32 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/08 21:35:02 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/10 20:40:30 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 #include <unistd.h>
 
+
+/*
+ * Rotate both stack to optimize the moves. 
+ * Reverse is a flag to know if it's need a reverse or a normal rotate 
+ */
+void rotate_both(t_stack **a, t_stack **b, t_stack *cheapest, int reverse)
+{
+	while(*a != cheapest->target && *b != cheapest)
+	{
+		//printf("Hola\n");
+		if(reverse)
+			rrr(a, b, 0);
+		else 
+			rr(a, b, 0);
+	}
+	set_index(*a);
+	set_index(*b);
+}
+
+void top_targets(t_stack **a, t_stack **b)
+{
+	t_stack *cheapest;
+	
+	//printf("HOLAAAA\n");
+	cheapest = search_node(*b, (long)cheapest_value(*b));
+	if(cheapest->above_center && cheapest->target->above_center)
+		rotate_both(a, b, cheapest, 0);
+	else if (!cheapest->above_center && !cheapest->target->above_center)
+		rotate_both(a, b, cheapest, 1);
+	while(*a != cheapest->target)
+	{
+		//printf("T^T %d |||||||||||||||| %d\n", cheapest->target->value, (*a)->value);
+		if(cheapest->target->above_center)
+			ra(a, 0);
+		else 
+			rra(a, 0);
+	}
+	while(*b != cheapest)
+	{
+		if(cheapest->above_center)
+			rb(b, 0);
+		else 
+			rrb(b, 0);
+	}
+	pa(a, b, 0);
+}
+
 void move(t_stack **a, t_stack **b)
 {
-	if(*a && *b)
-	pa(a,b, 0);
-	(void)a;
-	(void)b;
+	top_targets(a, b);
+	set_index(*a);
+	set_index(*b);
 }
 
 /*
@@ -29,30 +75,39 @@ void move(t_stack **a, t_stack **b)
 void	big_sort(t_stack **a, t_stack **b)
 {
 	int	len;
-	
+	t_stack *small; 
 
 	(void)b;
 	len = stack_len(*a);
-	if(len == 5)
+	if(len == 4)
 	{
 		// handle five
 		sort_five(a, b);
 	}
 	else 
 	{
-		// Push to b until there are three nodes
 		while(len-- > 3)
 			pb(a, b, 0);
 	}
+	//print_stack(*a,*b);
 	sort_three(a);
 	while(*b)
 	{
-	//	print_stack(*a,*b);
 		init_nodes(*a, *b);
-		print_stack(*a, *b);
 		move(a, b);
+		//print_stack(*a, *b);
 	}
-
+	small = search_node(*a, (long)smallest(*a));	
+	if(small->above_center)
+	{
+		while(small != *a)
+			ra(a, 0);
+	}
+	else 
+	{
+		while(small != *a)
+			rra(a, 0);
+	}
 }
 
 
@@ -64,9 +119,9 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	if (argc < 2)
-		return (write(2, "push_swap: error\n", ft_strlen("push_swap: error\n")));
+		return (write(2, "Error\n", 6));
 	init_stack(argv, argc, &a);
-	print_stack(a, b);	
+	//print_stack(a, b);	
 	if(!sorted(a))
 	{
 		if (stack_len(a) == 2)
@@ -76,8 +131,8 @@ int	main(int argc, char **argv)
 		else 
 			big_sort(&a, &b);
 	}
-	printf("======== END OF THE PROGRAM ==========\n");
-	print_stack(a, b);
+	//printf("======== END OF THE PROGRAM ==========\n");
+	//print_stack(a, b);
 	finish(&a, &b);
 	return (0);
 }

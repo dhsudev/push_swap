@@ -6,17 +6,17 @@
 /*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:58:19 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/08 16:27:08 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/09 06:52:32 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	rotate(t_stack **stack)
+/*void	rotate(t_stack **stack)
 {
 	t_stack	*top;
 	t_stack	*tmp;
-	int len;
+	int		len;
 
 	len = stack_len(*stack);
 	if (stack == NULL || *stack == NULL || len < 2)
@@ -29,7 +29,24 @@ void	rotate(t_stack **stack)
 	while (tmp->next)
 		tmp = tmp->next;
 	tmp->next = top;
-}
+	top->prev = tmp;
+}*/ 
+
+static void	rotate(t_stack **stack)
+{
+	t_stack	*last_node;
+	int				len;
+
+	len = stack_len(*stack);
+	if (NULL == stack || NULL == *stack || 1 == len)
+		return ;
+	last_node = find_last_node(*stack);
+	last_node->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->prev = NULL;
+	last_node->next->prev = last_node;
+	last_node->next->next = NULL;
+}	
 
 void	ra(t_stack **a, int checker)
 {

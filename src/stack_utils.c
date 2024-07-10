@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:44:55 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/08 21:32:44 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/09 06:52:04 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,23 +39,21 @@ void	add_to_stack(t_stack **stack, int n)
 		last->next = new;
 	}
 	else
-		*stack = new;
-}
-
-int	smallest(t_stack *stack)
-{
-	int	n;
-
-	n = stack->value;
-	while (stack)
 	{
-		if (n > stack->value)
-			n = stack->value;
-		stack = stack->next;
+		*stack = new;
+		(*stack)->prev = NULL;
 	}
-	return (n);
 }
 
+
+t_stack	*find_last_node(t_stack *head)
+{
+	if (NULL == head)
+		return (NULL);
+	while (head->next)
+		head = head->next;
+	return (head);
+}
 int	stack_len(t_stack *stack)
 {
 	int	count;
@@ -63,17 +61,18 @@ int	stack_len(t_stack *stack)
 	count = 0;
 	while (stack)
 	{
+	//	printf("Estoy en count:::::::::%i", count);
 		count++;
 		stack = stack->next;
 	}
 	return (count);
 }
 
-int sorted(t_stack *stack)
+int	sorted(t_stack *stack)
 {
-	while(stack->next)
+	while (stack->next)
 	{
-		if(stack->value > stack->next->value)
+		if (stack->value > stack->next->value)
 			return (0);
 		stack = stack->next;
 	}
@@ -95,11 +94,13 @@ void	print_stack(t_stack *a, t_stack *b)
 	}
 	i = 0;
 	printf("--Stack B --\n");
-	while (b != NULL)
+	while (b != NULL && i < 10)
 	{
-		if(b->target != NULL)
-			printf("%d - |%d| target: %d push_price: %d\n", i, b->value, b->target->value, b->price);
-		else {
+		if (b->target != NULL)
+			printf("%d - |%d| target: %d push_price: %d\n", i, b->value,
+				b->target->value, b->price);
+		else
+		{
 			printf("%d - |%d| no target\n", i, b->value);
 		}
 		b = b->next;

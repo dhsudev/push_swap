@@ -6,7 +6,7 @@
 #    By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 17:30:04 by ltrevin-          #+#    #+#              #
-#    Updated: 2024/07/08 21:30:19 by ltrevin-         ###   ########.fr        #
+#    Updated: 2024/07/10 21:01:06 by ltrevin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,28 +43,49 @@ $(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c $(HEADER_FILE) include/libft/libft.a
 	@mkdir -p objs
 	@$(CC) $(FLAGS) -c $< -o $@ -I $(INCLUDE_PATH) 
 	@echo "🛠  $(@F:.o=) object created!"
-
-run: $(NAME) 
-	@echo "🔢 Starting execution..."
-	@./$(NAME) $(ARGS)
 	
-test: $(NAME) checker_Mac
-	@echo "🔢  Starting execution with checker_Mac..."
-	@./$(NAME) $(ARGS) | ./checker_Mac $(ARGS)
-	@echo "🔢  Starting execution counting words..."
-	@./$(NAME) $(ARGS) | wc -l
+ARG_FILE := args.txt
+# 5 nums max 12 moves
+# 100 max 700
+# 500 max 5500
+NUM_QTY := 500
+MAX_MOVES := 5500
+generate_arg: 
+	@shuf -i 0-5000000 -n $(NUM_QTY) > $(ARG_FILE)
 
+test: $(NAME) generate_arg
+	@ARG=$$(cat $(ARG_FILE)); \
+	RESULT=$$(./$(NAME) $$ARG | ./checker_linux $$ARG); \
+	if [ "$$RESULT" = "OK" ]; then \
+		COLOR="\033[0;32m"; \
+	else \
+		COLOR="\033[0;31m"; \
+	fi; \
+	echo "󱝿⚙️ Checker verify: $$COLOR$$RESULT\033[0m"; \
+	echo -n "🔢 Num of moves:    "; \
+	NUM_MOVES=$$(./$(NAME) $$ARG | wc -l); \
+	if [ "$$NUM_MOVES" -lt $(MAX_MOVES) ]; then \
+		COLOR="\033[0;32m"; \
+	else \
+		COLOR="\033[0;31m"; \
+	fi; \
+	echo "$$COLOR$$NUM_MOVES\033[0m"
+
+#fish: for i in (seq 1 10); make test; end
+#bash: for i in {1..10}; do make test; done
 
 clean:
 	@rm -rf objs
 	@echo "🧼 Removed object files from pushswap!"
-
+	@rm -f $(ARG_FILE)
 fclean: clean
 	@make fclean -C include/libft --no-print-directory
 	@rm -f $(NAME)
 	@echo "🛁 Removed $(NAME) file!"
 
 re: fclean all
+
+
 
 
 .PHONY: all clean fclean re libft

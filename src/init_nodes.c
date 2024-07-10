@@ -6,35 +6,34 @@
 /*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:14:33 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/08 13:28:40 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/10 14:34:31 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-
 /*
- * Calculates the price to perfom the pa (to be in order) 
+ * Calculates the price to perfom the pa (to be in order)
  * of every node in b.
- * The price is a sum of how many moves 
+ * The price is a sum of how many moves
  * we need to put in the top the node in b and its target node in a
  */
 
 void	set_price(t_stack *a, t_stack *b)
 {
-	int len_a;
-	int len_b;
+	int	len_a;
+	int	len_b;
 
 	len_a = stack_len(a);
 	len_b = stack_len(b);
-	while(b)
+	while (b)
 	{
 		b->price = b->index;
-		if(!(b->above_center))
+		if (!(b->above_center))
 			b->price = len_b - b->index;
-		if(b->target->above_center)
+		if (b->target->above_center)
 			b->price += b->target->index;
-		else 
+		else
 			b->price += len_a - b->target->index;
 		b = b->next;
 	}
@@ -94,7 +93,8 @@ void	set_target(t_stack *a, t_stack *b)
 		// printf("Searching target for: %d\n", b->value);
 		while (curr_a)
 		{
-			//	printf("\t - Evaluating %d in a for %d in b\n", curr_a->value,b->value);
+			//	printf("\t - Evaluating %d in a for %d in b\n",
+			// curr_a->value,b->value);
 			if (curr_a->value > b->value && curr_a->value < best_target)
 				best_target = (long)curr_a->value;
 			curr_a = curr_a->next;
@@ -107,13 +107,14 @@ void	set_target(t_stack *a, t_stack *b)
 /*
  * Search for the cheapest node in the stack b and flags it
  */
-void set_cheapest(t_stack *stack){
-	t_stack *cheapest_node;
-	
+void	set_cheapest(t_stack *stack)
+{
+	t_stack	*cheapest_node;
+
 	cheapest_node = stack;
-	while(stack)
+	while (stack)
 	{
-		if(stack->price < cheapest_node->price)
+		if (stack->price < cheapest_node->price)
 		{
 			cheapest_node = stack;
 		}
@@ -121,7 +122,7 @@ void set_cheapest(t_stack *stack){
 		stack = stack->next;
 	}
 	cheapest_node->cheapest = 1;
-	printf("The cheapest node is: |%d|\n", cheapest_node->value);
+	//printf("The cheapest node is: |%d|\n", cheapest_node->value);
 }
 /*
  * Inits the nodes of the stacks to make the decision of what to move:

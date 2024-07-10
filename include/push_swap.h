@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:38:48 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/06 20:29:13 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/09 06:52:20 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,12 @@ int					sorted(t_stack *stack);
 void				sort_three(t_stack **stack);
 void				sort_five(t_stack **a, t_stack **b);
 void				init_nodes(t_stack *a, t_stack *b);
+void	set_index(t_stack *stack);
+int	smallest(t_stack *stack);
+t_stack	*search_node(t_stack *stack, long n);
+int					cheapest_value(t_stack *stack);
+t_stack	*find_last_node(t_stack *head);
+
 // Utils to delete
 void				print_stack(t_stack *a, t_stack *b);
 

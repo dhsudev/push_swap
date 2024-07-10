@@ -6,7 +6,7 @@
 /*   By: ltrevin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:53:06 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/06 17:14:22 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/10 20:12:11 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	finish(t_stack **a, t_stack **b)
 
 void	exit_checking(t_stack **stack)
 {
-	write(1,"Error\n",6);
+	write(2,"Error\n",6);
 	finish(stack, NULL);
 	exit(1);
 }

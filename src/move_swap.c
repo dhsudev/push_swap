@@ -6,13 +6,13 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/30 18:52:45 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/03 18:14:04 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/09 06:30:06 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	swap(t_stack **stack)
+/*void	swap(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
@@ -26,6 +26,21 @@ void	swap(t_stack **stack)
 	first->prev = second;
 	second->prev = NULL;
 	*stack = second;
+}*/ 
+static void	swap(t_stack **head)
+{
+	int	len;
+
+	len = stack_len(*head);
+	if (NULL == *head || NULL == head || 1 == len)
+		return ;
+	*head = (*head)->next;
+	(*head)->prev->prev = *head;
+	(*head)->prev->next = (*head)->next;
+	if ((*head)->next)
+		(*head)->next->prev = (*head)->prev;
+	(*head)->next = (*head)->prev;
+	(*head)->prev = NULL;
 }
 
 void	sa(t_stack **a, int checker)
