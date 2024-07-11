@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:07:31 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/09 06:52:00 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:29:36 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,16 @@ long	ft_atol(char *str)
 	return (n * sign);
 }
 
-
 /* Returns the values of the node flagged as cheapest*/
 int	cheapest_value(t_stack *stack)
 {
-	while(stack)
+	while (stack)
 	{
-		if(stack->cheapest)
+		if (stack->cheapest)
 			return (stack->value);
 		stack = stack->next;
 	}
-	return 0;
+	return (0);
 }
 
 int	smallest(t_stack *stack)
@@ -67,4 +66,47 @@ int	smallest(t_stack *stack)
 		stack = stack->next;
 	}
 	return (n);
+}
+
+int	count_elements(t_stack *head, int value, int count_smallest)
+{
+	int		count;
+	t_stack	*current;
+
+	count = 0;
+	current = head;
+	while (current != NULL)
+	{
+		if (count_smallest)
+		{
+			if (current->value < value)
+				count++;
+		}
+		else
+		{
+			if (current->value > value)
+				count++;
+		}
+		current = current->next;
+	}
+	return (count);
+}
+
+int	find_median(t_stack *head, int size)
+{
+	t_stack	*current;
+	int		median_position;
+
+	current = head;
+	median_position = (size - 1) / 2;
+	int count_smaller, count_greater;
+	while (current != NULL)
+	{
+		count_smaller = count_elements(head, current->value, 1);
+		count_greater = count_elements(head, current->value, 0);
+		if (count_smaller == median_position && count_greater == size / 2)
+			return (current->value);
+		current = current->next;
+	}
+	return (-1); // Should never reach here if input is valid
 }

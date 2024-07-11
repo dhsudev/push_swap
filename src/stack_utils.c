@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:44:55 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/09 06:52:04 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:34:49 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	print_stack(t_stack *a, t_stack *b)
 	printf("--------Printing stacks------------\n--Stack A --\n");
 	while (a != NULL)
 	{
-		printf("%d - |%d|\n", i, a->value);
+		printf("%d - |%d| flag: %d\n", i, a->value, a->above_median);
 		a = a->next;
 		i++;
 	}

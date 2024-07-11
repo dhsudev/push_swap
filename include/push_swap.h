@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:38:48 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/09 06:52:20 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/11 14:30:53 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
-	int				final_index;
 	int				price;
 	int				above_center;
 	int				cheapest;
+	int				above_median;
 	struct s_stack	*target;
 	struct s_stack	*next;
 	struct s_stack	*prev;
@@ -50,6 +50,8 @@ void	set_index(t_stack *stack);
 int	smallest(t_stack *stack);
 t_stack	*search_node(t_stack *stack, long n);
 int					cheapest_value(t_stack *stack);
+int	find_median(t_stack *head, int size);
+
 t_stack	*find_last_node(t_stack *head);
 
 // Utils to delete
