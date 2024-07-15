@@ -6,7 +6,7 @@
 #    By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 17:30:04 by ltrevin-          #+#    #+#              #
-#    Updated: 2024/07/11 16:37:41 by ltrevin-         ###   ########.fr        #
+#    Updated: 2024/07/15 15:27:08 by ltrevin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ INCLUDE_PATH	= ./include
 ##########  VARS FILES
 SRC_FILES 		= 	check_args.c main.c num_utils.c stack_utils.c \
 					move_swap.c move_push.c move_rotate.c move_reverse_rotate.c \
-					tiny_sorts.c init_nodes.c
+					sort_utils.c init_nodes.c
 SRCS 			= $(patsubst %, $(SRCS_PATH)/%, $(SRC_FILES))
 OBJECTS 		= $(patsubst $(SRCS_PATH)/%.c, $(OBJS_PATH)/%.o, $(SRCS))
 HEADER_FILE		= $(INCLUDE_PATH)/push_swap.h
@@ -48,8 +48,8 @@ ARG_FILE := args.txt
 # 5 nums max 12 moves
 # 100 max 700
 # 500 max 5500
-NUM_QTY := 5
-MAX_MOVES := 12
+NUM_QTY := 500
+MAX_MOVES := 5500
 generate_arg: 
 	@shuf -i 0-5000000 -n $(NUM_QTY) > $(ARG_FILE)
 
@@ -84,8 +84,5 @@ fclean: clean
 	@echo "🛁 Removed $(NAME) file!"
 
 re: fclean all
-
-
-
 
 .PHONY: all clean fclean re libft

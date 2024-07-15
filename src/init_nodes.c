@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 20:14:33 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/10 14:34:31 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:21:16 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,6 @@ void	set_index(t_stack *stack)
 		stack = stack->next;
 	}
 }
-/* Returns a node in a stack which have n as value*/
-t_stack	*search_node(t_stack *stack, long n)
-{
-	if (n == LONG_MAX)
-		n = smallest(stack);
-	while (stack)
-	{
-		if ((long)stack->value == n)
-			return (stack);
-		stack = stack->next;
-	}
-	return (NULL);
-}
 
 /*
  * Search the target node from a to b.
@@ -90,20 +77,17 @@ void	set_target(t_stack *a, t_stack *b)
 	{
 		curr_a = a;
 		best_target = LONG_MAX;
-		// printf("Searching target for: %d\n", b->value);
 		while (curr_a)
 		{
-			//	printf("\t - Evaluating %d in a for %d in b\n",
-			// curr_a->value,b->value);
 			if (curr_a->value > b->value && curr_a->value < best_target)
 				best_target = (long)curr_a->value;
 			curr_a = curr_a->next;
 		}
-		// printf("Decided target: %ld\n", best_target);
 		b->target = search_node(a, best_target);
 		b = b->next;
 	}
 }
+
 /*
  * Search for the cheapest node in the stack b and flags it
  */
@@ -122,8 +106,8 @@ void	set_cheapest(t_stack *stack)
 		stack = stack->next;
 	}
 	cheapest_node->cheapest = 1;
-	//printf("The cheapest node is: |%d|\n", cheapest_node->value);
 }
+
 /*
  * Inits the nodes of the stacks to make the decision of what to move:
  *		- sets the index of the node in the stack

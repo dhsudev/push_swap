@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:38:48 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/11 14:30:53 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:26:17 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,20 +42,21 @@ void				finish(t_stack **a, t_stack **b);
 int					smallest(t_stack *stack);
 int					stack_len(t_stack *stack);
 int					sorted(t_stack *stack);
+t_stack				*search_node(t_stack *stack, long n);
 // Sorting fucn
 void				sort_three(t_stack **stack);
 void				sort_five(t_stack **a, t_stack **b);
 void				init_nodes(t_stack *a, t_stack *b);
-void	set_index(t_stack *stack);
-int	smallest(t_stack *stack);
-t_stack	*search_node(t_stack *stack, long n);
+void				set_index(t_stack *stack);
+int					smallest(t_stack *stack);
 int					cheapest_value(t_stack *stack);
-int	find_median(t_stack *head, int size);
+int					find_median(t_stack *head, int size);
+t_stack				*find_last_node(t_stack *head);
+void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest, int reverse);
+void	top_targets(t_stack **a, t_stack **b);
+void	move(t_stack **a, t_stack **b);
 
-t_stack	*find_last_node(t_stack *head);
 
-// Utils to delete
-void				print_stack(t_stack *a, t_stack *b);
 
 // MOVES
 void				sa(t_stack **a, int checker);

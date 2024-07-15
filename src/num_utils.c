@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:07:31 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/11 14:29:36 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:13:37 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,10 +96,11 @@ int	find_median(t_stack *head, int size)
 {
 	t_stack	*current;
 	int		median_position;
+	int		count_smaller;
+	int		count_greater;
 
 	current = head;
 	median_position = (size - 1) / 2;
-	int count_smaller, count_greater;
 	while (current != NULL)
 	{
 		count_smaller = count_elements(head, current->value, 1);
@@ -108,5 +109,5 @@ int	find_median(t_stack *head, int size)
 			return (current->value);
 		current = current->next;
 	}
-	return (-1); // Should never reach here if input is valid
+	return (-1);
 }

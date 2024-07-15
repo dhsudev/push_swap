@@ -6,7 +6,7 @@
 /*   By: ltrevin- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 16:53:06 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/10 20:12:11 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/15 14:41:46 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	finish(t_stack **a, t_stack **b)
 {
 	t_stack	*node;
 
-	if(a != 0)
+	if (a != 0)
 	{
 		while (*a)
 		{
@@ -25,7 +25,7 @@ void	finish(t_stack **a, t_stack **b)
 			free(node);
 		}
 	}
-	if(b != 0)
+	if (b != 0)
 	{
 		while (*b)
 		{
@@ -39,7 +39,7 @@ void	finish(t_stack **a, t_stack **b)
 
 void	exit_checking(t_stack **stack)
 {
-	write(2,"Error\n",6);
+	write(2, "Error\n", 6);
 	finish(stack, NULL);
 	exit(1);
 }
@@ -64,14 +64,14 @@ int	not_valid_chars(char *s)
 	int	i;
 
 	i = 0;
-	while (s[i] && (s[i] == ' ' || s[i] == '\t' || s[i] == '\n'
-			|| s[i] == '\r' || s[i] == '\v' || s[i] == '\f'))
+	while (s[i] && (s[i] == ' ' || s[i] == '\t' || s[i] == '\n' || s[i] == '\r'
+			|| s[i] == '\v' || s[i] == '\f'))
 		i++;
 	if (s[i] == '+' || s[i] == '-')
 	{
 		i++;
 		if (s[i] == '\0')
-			return(1);
+			return (1);
 	}
 	while (s[i])
 	{

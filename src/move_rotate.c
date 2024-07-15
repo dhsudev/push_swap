@@ -6,36 +6,16 @@
 /*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 14:58:19 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/09 06:52:32 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/15 15:10:36 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-/*void	rotate(t_stack **stack)
-{
-	t_stack	*top;
-	t_stack	*tmp;
-	int		len;
-
-	len = stack_len(*stack);
-	if (stack == NULL || *stack == NULL || len < 2)
-		return ;
-	top = *stack;
-	*stack = (*stack)->next;
-	top->next = NULL;
-	(*stack)->prev = NULL;
-	tmp = *stack;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = top;
-	top->prev = tmp;
-}*/ 
-
-static void	rotate(t_stack **stack)
+void	rotate(t_stack **stack)
 {
 	t_stack	*last_node;
-	int				len;
+	int		len;
 
 	len = stack_len(*stack);
 	if (NULL == stack || NULL == *stack || 1 == len)
@@ -46,7 +26,7 @@ static void	rotate(t_stack **stack)
 	(*stack)->prev = NULL;
 	last_node->next->prev = last_node;
 	last_node->next->next = NULL;
-}	
+}
 
 void	ra(t_stack **a, int checker)
 {
