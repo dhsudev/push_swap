@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42barcelona.co  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/02 16:18:36 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/15 15:26:11 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:25:24 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,3 @@ void	move(t_stack **a, t_stack **b)
 	set_index(*a);
 	set_index(*b);
 }
-
-

@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:38:48 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/15 15:26:17 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:23:09 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,10 @@ int					smallest(t_stack *stack);
 int					cheapest_value(t_stack *stack);
 int					find_median(t_stack *head, int size);
 t_stack				*find_last_node(t_stack *head);
-void	rotate_both(t_stack **a, t_stack **b, t_stack *cheapest, int reverse);
-void	top_targets(t_stack **a, t_stack **b);
-void	move(t_stack **a, t_stack **b);
-
-
+void				rotate_both(t_stack **a, t_stack **b, t_stack *cheapest,
+						int reverse);
+void				top_targets(t_stack **a, t_stack **b);
+void				move(t_stack **a, t_stack **b);
 
 // MOVES
 void				sa(t_stack **a, int checker);

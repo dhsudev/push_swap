@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/16 19:44:55 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/15 15:21:31 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/15 17:21:43 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int	stack_len(t_stack *stack)
 
 int	sorted(t_stack *stack)
 {
+	if (!stack)
+		return (0);
 	while (stack->next)
 	{
 		if (stack->value > stack->next->value)
