@@ -6,7 +6,7 @@
 /*   By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 18:04:29 by ltrevin-          #+#    #+#             */
-/*   Updated: 2024/07/03 18:24:07 by ltrevin-         ###   ########.fr       */
+/*   Updated: 2024/07/15 16:24:04 by ltrevin-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
+# include "./get_next_line/get_next_line.h"
 
 int					ft_isalnum(char c);
 int					ft_isalpha(int c);
