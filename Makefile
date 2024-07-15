@@ -6,7 +6,7 @@
 #    By: ltrevin- <ltrevin-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/16 17:30:04 by ltrevin-          #+#    #+#              #
-#    Updated: 2024/07/11 14:48:34 by ltrevin-         ###   ########.fr        #
+#    Updated: 2024/07/11 16:37:41 by ltrevin-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,8 +48,8 @@ ARG_FILE := args.txt
 # 5 nums max 12 moves
 # 100 max 700
 # 500 max 5500
-NUM_QTY := 500
-MAX_MOVES := 5500
+NUM_QTY := 5
+MAX_MOVES := 12
 generate_arg: 
 	@shuf -i 0-5000000 -n $(NUM_QTY) > $(ARG_FILE)
 
